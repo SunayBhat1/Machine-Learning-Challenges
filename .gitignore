@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Data/eBay_ML_Challenge_Dataset_2021_quiz.tsv
+Data/eBay_ML_Challenge_Dataset_2021_train.tsv
