@@ -4,12 +4,13 @@ Collection of functions used for feature extraction, predictions, and loss calcs
 '''
 
 import pandas as pd
+import numpy as np
 import pgeocode
 from tqdm import tqdm
 
 
 ##### Data Formatting #######
-def feature_extraction(df):
+def get_features(df):
     # Create Feature Dataframe
     df_Feat =  pd.DataFrame(np.nan, index=df.index, columns=['Type','Handle','Ship_Method','Min','Max','Range','Dist','Weight',\
         'Category','Price','Quantity','Size','Delivery_Days'])
