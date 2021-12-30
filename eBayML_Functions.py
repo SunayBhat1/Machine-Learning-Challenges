@@ -60,17 +60,6 @@ def get_features(df):
 
     return df_Feat
 
-def calc_loss(model,df):
-    X = df.values[:,0:-1]
-    predictions = model.predict(X).astype(int)
-    truth = df.values[:,-1]
-    difference = truth - predictions
-    early = 0.4 * abs(np.multiply(difference < 0, difference).sum())
-    late = 0.6 * np.multiply(difference > 0, difference).sum()
-    loss = (early + late)/df.shape[0]
-    print('Loss is {:.2f}'.format(loss))
-    return loss
-
 def calc_loss_clust(models,df):
 
     km_predict = km.predict(df.values)
