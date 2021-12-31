@@ -159,9 +159,9 @@ def saveQuiz(df,predictions,filename):
     df_out =  pd.DataFrame(np.nan, index=df.index, columns=['record identifier','predicted delivery date']).astype(str)
 
     for iRow in tqdm(range(df.shape[0])):
-        payment = datetime.strptime(df.iloc[iRow]['payment_datetime'][:16], '%Y-%m-%d %H:%M') + timedelta(hours = -int(df_quiz.iloc[iRow]['payment_datetime'][-6:-3]))
+        payment = datetime.strptime(df.iloc[iRow]['payment_datetime'][:16], '%Y-%m-%d %H:%M') + timedelta(hours = -int(df.iloc[iRow]['payment_datetime'][-6:-3]))
         delivery = payment + timedelta(days=predictions[iRow])
-        df_out.at[iRow,'record identifier'] = df_quiz['record_number'][iRow]
+        df_out.at[iRow,'record identifier'] = df['record_number'][iRow]
         df_out.at[iRow,'predicted delivery date'] = delivery.strftime('%Y-%m-%d')
 
     df_out.to_csv(filename, sep="\t",header=False,index=False, compression= 'gzip')
