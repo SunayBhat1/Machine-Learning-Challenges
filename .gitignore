@@ -136,3 +136,4 @@ Features/
 Wells Fargo/dbb4c4ff1f31-CAC+2022_Test+Data+Set+New.xlsx
 *.xlsx
 Wells Fargo/glove.6B.50d.txt
+.DS_Store
